@@ -28,7 +28,7 @@ export default class Results extends Component {
   }
 
   updateProperity = (id, location) => {
-    console.log('update Item %o location %o', id, location)
+    //console.log('update Item %o location %o', id, location)
 
     if(location === 'Results') {
         let item = this.state.results.find(item =>{
@@ -53,7 +53,7 @@ export default class Results extends Component {
                 saved: tempArr
             })
 
-            console.log('tempArr %o', tempArr)            
+            //console.log('tempArr %o', tempArr)            
         }
 
 
@@ -69,8 +69,13 @@ export default class Results extends Component {
     return (
       <div className='row'>
         <div className='col-sm-6'>
+          <h2>Found ({this.getProperities().length})</h2>
+
           {
-             this.getProperities().length === 0 ? null :
+             this.getProperities().length === 0 ? (<div>
+             <h3>You have no found properities.</h3>
+             <p>Change your search paramters to find new properities.</p>
+             </div>):
              this.getProperities().map(item => {
                 return (<PropertyCard
                   logo={item.agency.logo}
@@ -90,8 +95,10 @@ export default class Results extends Component {
           }
         </div>
         <div className='col-sm-6'>
+           <h2>Saved ({this.getSavedProperities().length})</h2>
           {
-             this.getSavedProperities().length === 0 ? null :
+             this.getSavedProperities().length === 0 ? (<div><h3>You have no saved properities.</h3>
+             <p>Clicking 'Add' will include this property in this list so you can review it later.</p></div>) :
              this.getSavedProperities().map(item => {
                 return (<PropertyCard
                   logo={item.agency.logo}
