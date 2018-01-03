@@ -19,35 +19,52 @@
 		background-color: rgba(255, 255, 255, .6);
 		width: 100%;
 		text-align: left;
+		transform: max-height 0.5s
+		max-height: 55px;
+		overflow: hidden;
 
-		display: flex;
-   		flex-direction: row;
-   		justify-content: space-between;
+		.card-body--top-row {
+			display: flex;
+	   		flex-direction: row;
+	   		justify-content: space-between;
+			
+			padding: 3px;
+
+			.price {
+				font-weight: bold;
+				padding: 0 15px 0;
+				font-size: 16px;
+				margin-bottom: 0;
+			}
+
+			button {
+				float: right;
+				border-radius: 5px;
+				width: 150px;
+				background-color: #e4002b;
+				box-shadow: 1px 1px rgba(50, 50, 50, .5);
+
+				&:hover {
+					background-color: lighten(#e4002b, 15%);
+					color: #fff;
+				}
+
+				&.Saved {
+				  
+				}
+			}
+		}
+
 		
-		padding: 3px;
-
-		.price {
-			font-weight: bold;
-			padding: 0 15px 0;
-			font-size: 16px;
-			margin-bottom: 0;
+		.card-body--bottom-row {
+		  max-height: 0;
 		}
+	}
 
-		button {
-			float: right;
-			border-radius: 5px;
-			width: 150px;
-			background-color: #e4002b;
-			box-shadow: 1px 1px rgba(50, 50, 50, .5);
+	&:hover {
+	  .card-body--bottom-row {
+	    padding: 0 15px;
 
-			&:hover {
-				background-color: lighten(#e4002b, 15%);
-				color: #fff;
-			}
-
-			&.Saved {
-			  
-			}
-		}
+	  }
 	}
 }

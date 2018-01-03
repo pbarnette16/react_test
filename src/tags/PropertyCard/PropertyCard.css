@@ -13,22 +13,28 @@
     left: 0;
     background-color: rgba(255, 255, 255, 0.6);
     width: 100%;
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 3px; }
-    .card .card-body .price {
-      font-weight: bold;
-      padding: 0 15px 0;
-      font-size: 16px;
-      margin-bottom: 0; }
-    .card .card-body button {
-      float: right;
-      border-radius: 5px;
-      width: 150px;
-      background-color: #e4002b;
-      box-shadow: 1px 1px rgba(50, 50, 50, 0.5); }
-      .card .card-body button:hover {
-        background-color: #ff3258;
-        color: #fff; }
+    text-align: left; }
+    .card .card-body .card-body--top-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3px; }
+      .card .card-body .card-body--top-row .price {
+        font-weight: bold;
+        padding: 0 15px 0;
+        font-size: 16px;
+        margin-bottom: 0; }
+      .card .card-body .card-body--top-row button {
+        float: right;
+        border-radius: 5px;
+        width: 150px;
+        background-color: #e4002b;
+        box-shadow: 1px 1px rgba(50, 50, 50, 0.5); }
+        .card .card-body .card-body--top-row button:hover {
+          background-color: #ff3258;
+          color: #fff; }
+    .card .card-body .card-body--bottom-row {
+      display: none; }
+  .card:hover .card-body--bottom-row {
+    display: block;
+    padding: 0 15px; }

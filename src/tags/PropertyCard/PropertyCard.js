@@ -16,10 +16,15 @@ export default({
       </div>
       <img className='card-img-top' src={picture} alt='' />
       <div className='card-body'>
-        <p className='price'>{price}</p>
-        <button onClick={() => {
-          updatePropertyState(id, cardLocation)
-        }}
+        <div className='card-body--top-row'>
+          <p className='price'>{price}</p>
+          <button onClick={() => {
+            updatePropertyState(id, cardLocation)
+          }}
           >{(cardLocation === 'Results') ? 'Add' : 'Remove'}</button>
+        </div>
+        <div className='card-body--bottom-row'>
+          <p className='description'><strong>Description:</strong> Lorem ipsum dolor sit amet.</p>
+        </div>
       </div>
     </div>)
