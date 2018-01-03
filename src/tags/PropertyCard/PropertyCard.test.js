@@ -17,7 +17,8 @@ const propertyParams = {
   logo: 'http://i1.au.reastatic.net/agencylogo/XRWXMT/12/20120927204448.gif',
   id: '5',
   picture: 'http://i2.au.reastatic.net/640x480/20bfc8668a30e8cabf045a1cd54814a9042fc715a8be683ba196898333d68cec/main.jpg',
-  cardLocation: 'Saved'
+  cardLocation: 'Saved',
+  buttonText: 'Remove'
 }
 
 test('PropertyCard renders correctly', () => {
@@ -43,11 +44,46 @@ describe('Default params', () => {
   })
   test('Setting default cardLocation', () => {
     const propertyCard = shallow(<PropertyCard />)
-    expect(propertyCard.prop('data-card-location')).toEqual('Result')
+    expect(propertyCard.prop('data-card-location')).toEqual('Results')
   })
   test('Setting default id', () => {
     const propertyCard = shallow(<PropertyCard />)
     expect(propertyCard.prop('id')).toEqual('1')
   })
+  test('Getting default the button text', () => {
+    const propertyCard = shallow(<PropertyCard />)
+    expect(propertyCard.find('button').text()).toEqual('Add')
+  })
 })
 
+describe('Test loading specific params to the Property Card', () => {
+  test('Setting logo renders correctly', () => {
+    const propertyCard = shallow(<PropertyCard logo={propertyParams.logo} />)
+    expect(propertyCard.find('.logo').prop('src')).toEqual(propertyParams.logo)
+  })
+
+  test('Setting branding renders correctly', () => {
+    const propertyCard = shallow(<PropertyCard brandingColor={propertyParams.brandingColor} />)
+    expect(propertyCard.find('.branding').prop('style').backgroundColor).toEqual(propertyParams.brandingColor)
+  })
+  test('Setting price renders correctly', () => {
+    const propertyCard = shallow(<PropertyCard price={propertyParams.price} />)
+    expect(propertyCard.find('.price').text()).toEqual(propertyParams.price)
+  })
+  test('Setting property picture renders correctly', () => {
+    const propertyCard = shallow(<PropertyCard picture={propertyParams.picture} />)
+    expect(propertyCard.find('.card-img-top').prop('src')).toEqual(propertyParams.picture)
+  })
+  test('Setting default cardLocation', () => {
+    const propertyCard = shallow(<PropertyCard cardLocation={propertyParams.cardLocation} />)
+    expect(propertyCard.prop('data-card-location')).toEqual(propertyParams.cardLocation)
+  })
+  test('Setting default id', () => {
+    const propertyCard = shallow(<PropertyCard id={propertyParams.id} />)
+    expect(propertyCard.prop('id')).toEqual(propertyParams.id)
+  })
+  test('Getting the button text', () => {
+    const propertyCard = shallow(<PropertyCard cardLocation={propertyParams.cardLocation} />)
+    expect(propertyCard.find('button').text()).toEqual(propertyParams.buttonText)
+  })
+})

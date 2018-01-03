@@ -1,12 +1,12 @@
 import React from 'react'
-import './PropertyCard.scss'
+import './PropertyCard.css'
 
 export default({
       logo = '',
       brandingColor = '#e4002b',
       picture = 'http://placekitten.com/640/480',
       price = '$0.0',
-      cardLocation = 'Result',
+      cardLocation = 'Results',
       id = '1',
       updatePropertyState = (id, cardLocation) => {}
     }) => (<div className={['card', 'PropertyCard', cardLocation].join(' ')} id={id}
@@ -18,8 +18,6 @@ export default({
       <div className='card-body'>
         <p className='price'>{price}</p>
         <button onClick={() => {
-          console.log('clicked for %o cardLocation %o updatePropertyState %o',
-          id, cardLocation, updatePropertyState)
           updatePropertyState(id, cardLocation)
         }}
           >{(cardLocation === 'Results') ? 'Add' : 'Remove'}</button>
