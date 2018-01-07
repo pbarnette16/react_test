@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Results.css'
 
-import getData from '../../services/service'
+import {getData} from '../../services/service'
 
 import PropertyCard from '../../tags/PropertyCard/PropertyCard'
 
@@ -17,7 +17,7 @@ export default class Results extends Component {
 
   componentDidMount () {
     console.log('componentDidMount in Results')
-    /*
+
     getData()
     .then(data => {
       console.log('data from API', data)
@@ -26,7 +26,6 @@ export default class Results extends Component {
         saved: data.saved
       })
     })
-*/
   }
 
   updateProperity = (id, location) => {
@@ -37,7 +36,7 @@ export default class Results extends Component {
             return item.id === id
         })
 
-        console.log('item %o', item)
+        //console.log('item %o', item)
         this.setState({
             saved: this.state.saved.concat(item)
         })
@@ -55,7 +54,7 @@ export default class Results extends Component {
                 saved: tempArr
             })
 
-            //console.log('tempArr %o', tempArr)            
+            //console.log('updated saved %o', tempArr)            
         }
 
 
@@ -70,7 +69,7 @@ export default class Results extends Component {
   render () {
     return (
       <div className='row'>
-        <div className='col-sm-6'>
+        <div className='col-sm-6 results--found'>
           <h2>Found ({this.getProperities().length})</h2>
 
           {
@@ -78,7 +77,7 @@ export default class Results extends Component {
              <h3>You have no found properities.</h3>
              <p>Change your search paramters to find new properities.</p>
              </div>):
-             this.getProperities().map(item => {
+             this.getProperities().map((item, i) => {
                 return (<PropertyCard
                   logo={item.agency.logo}
                   brandingColor={item.agency.brandingColors.primary}
@@ -86,6 +85,7 @@ export default class Results extends Component {
                   price={item.price}
                   cardLocation={'Results'}
                   id={item.id}
+                  key={item.id}
                   updatePropertyState={(id, cardLocation) => {
                     this.updateProperity(id, cardLocation)
                     } 
@@ -96,12 +96,12 @@ export default class Results extends Component {
            
           }
         </div>
-        <div className='col-sm-6'>
+        <div className='col-sm-6 results--saved'>
            <h2>Saved ({this.getSavedProperities().length})</h2>
           {
              this.getSavedProperities().length === 0 ? (<div><h3>You have no saved properities.</h3>
              <p>Clicking 'Add' will include this property in this list so you can review it later.</p></div>) :
-             this.getSavedProperities().map(item => {
+             this.getSavedProperities().map((item, i) => {
                 return (<PropertyCard
                   logo={item.agency.logo}
                   brandingColor={item.agency.brandingColors.primary}
@@ -109,6 +109,7 @@ export default class Results extends Component {
                   price={item.price}
                   cardLocation={'Saved'}
                   id={item.id}
+                  key={item.id}
                   updatePropertyState= {(id, cardLocation) => {
                     this.updateProperity(id, cardLocation)
                     } 
