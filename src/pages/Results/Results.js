@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Results.css'
 
-import {getData} from '../../services/service'
+import getData from '../../services/service'
 
 import PropertyCard from '../../tags/PropertyCard/PropertyCard'
 
@@ -16,6 +16,8 @@ export default class Results extends Component {
   }
 
   componentDidMount () {
+    console.log('componentDidMount in Results')
+    /*
     getData()
     .then(data => {
       console.log('data from API', data)
@@ -23,8 +25,8 @@ export default class Results extends Component {
         results: data.results,
         saved: data.saved
       })
-
     })
+*/
   }
 
   updateProperity = (id, location) => {
