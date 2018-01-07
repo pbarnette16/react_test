@@ -46,10 +46,7 @@ describe('Default params', () => {
     const propertyCard = shallow(<PropertyCard />)
     expect(propertyCard.prop('data-card-location')).toEqual('Results')
   })
-  test('Setting default id', () => {
-    const propertyCard = shallow(<PropertyCard />)
-    expect(propertyCard.prop('id')).toEqual('1')
-  })
+
   test('Getting default the button text', () => {
     const propertyCard = shallow(<PropertyCard />)
     expect(propertyCard.find('button').text()).toEqual('Add')
@@ -78,10 +75,7 @@ describe('Test loading specific params to the Property Card', () => {
     const propertyCard = shallow(<PropertyCard cardLocation={propertyParams.cardLocation} />)
     expect(propertyCard.prop('data-card-location')).toEqual(propertyParams.cardLocation)
   })
-  test('Setting default id', () => {
-    const propertyCard = shallow(<PropertyCard id={propertyParams.id} />)
-    expect(propertyCard.prop('id')).toEqual(propertyParams.id)
-  })
+
   test('Getting the button text', () => {
     const propertyCard = shallow(<PropertyCard cardLocation={propertyParams.cardLocation} />)
     expect(propertyCard.find('button').text()).toEqual(propertyParams.buttonText)

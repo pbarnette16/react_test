@@ -19,8 +19,8 @@
 		background-color: rgba(255, 255, 255, .6);
 		width: 100%;
 		text-align: left;
-		transform: max-height 0.5s
-		max-height: 55px;
+		transform: max-height 0.5s;
+		max-height: 75px;
 		overflow: hidden;
 
 		.card-body--top-row {
@@ -29,6 +29,7 @@
 	   		justify-content: space-between;
 			
 			padding: 3px;
+			min-height: 35px;
 
 			.price {
 				font-weight: bold;
@@ -38,33 +39,38 @@
 			}
 
 			button {
+				display: none;
 				float: right;
 				border-radius: 5px;
 				width: 150px;
 				background-color: #e4002b;
 				box-shadow: 1px 1px rgba(50, 50, 50, .5);
+				
 
 				&:hover {
 					background-color: lighten(#e4002b, 15%);
 					color: #fff;
 				}
 
-				&.Saved {
-				  
-				}
 			}
 		}
 
 		
 		.card-body--bottom-row {
-		  max-height: 0;
+		  height: 0;
 		}
 	}
 
 	&:hover {
+      .card-body--top-row {
+	      button {
+		      display: block;
+		    }
+      }
+
 	  .card-body--bottom-row {
 	    padding: 0 15px;
-
+	    height: 25px;
 	  }
 	}
 }

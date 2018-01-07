@@ -9,8 +9,8 @@ export default({
       cardLocation = 'Results',
       id = '1',
       updatePropertyState = (id, cardLocation) => {}
-    }) => (<div className={['card', 'PropertyCard', cardLocation].join(' ')} id={id}
-      data-card-location={cardLocation}>
+    }) => (<div className={['card', 'PropertyCard', cardLocation].join(' ')}
+      data-card-location={cardLocation} key={id}>
       <div className='branding' style={{backgroundColor: brandingColor}}>
         <img src={logo} alt='' className='logo' />
       </div>
