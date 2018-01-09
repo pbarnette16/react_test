@@ -16,11 +16,10 @@ export default class Results extends Component {
   }
 
   componentDidMount () {
-    console.log('componentDidMount in Results')
 
     getData()
     .then(data => {
-      console.log('data from API', data)
+      //console.log('data from API', data)
       this.setState({
         results: data.results,
         saved: data.saved
